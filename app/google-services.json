@@ -1,0 +1,174 @@
+{
+  "project_info": {
+    "project_number": "467720105587",
+    "firebase_url": "https://plantdaddy-38dc7.firebaseio.com",
+    "project_id": "plantdaddy-38dc7",
+    "storage_bucket": "plantdaddy-38dc7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467720105587:android:e141b9b1d9972f12",
+        "android_client_info": {
+          "package_name": "iot.plantdaddyandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467720105587-1lof49g7gutbel454md94mr8q5vob7v9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIGLWjCzhnrgY7gveMGiNuWr6-uF4MFmY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467720105587:android:cacc112403c06ea7",
+        "android_client_info": {
+          "package_name": "com.example.zakary.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467720105587-dd94j0lj53kt9k35psb4dkk6t4o12lht.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zakary.myapplication",
+            "certificate_hash": "fb52d8aaf2dd48f8d4ba758c6fd969560289e9e1"
+          }
+        },
+        {
+          "client_id": "467720105587-1lof49g7gutbel454md94mr8q5vob7v9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIGLWjCzhnrgY7gveMGiNuWr6-uF4MFmY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467720105587-1lof49g7gutbel454md94mr8q5vob7v9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467720105587:android:a35a92040207e9cc",
+        "android_client_info": {
+          "package_name": "com.example.zakary.plantdaddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467720105587-291u2d4mp1r8ibuv44ds3b85h7e1m49n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zakary.plantdaddy",
+            "certificate_hash": "fb52d8aaf2dd48f8d4ba758c6fd969560289e9e1"
+          }
+        },
+        {
+          "client_id": "467720105587-1lof49g7gutbel454md94mr8q5vob7v9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIGLWjCzhnrgY7gveMGiNuWr6-uF4MFmY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467720105587-1lof49g7gutbel454md94mr8q5vob7v9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467720105587:android:22f7e2ac1251649d",
+        "android_client_info": {
+          "package_name": "iot.plantdaddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467720105587-6cb6c37itg121mcd1hfauakptju4t8jp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "iot.plantdaddy",
+            "certificate_hash": "540bd44cd0c6c015044e64516086b3aa8db67bc3"
+          }
+        },
+        {
+          "client_id": "467720105587-1lof49g7gutbel454md94mr8q5vob7v9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIGLWjCzhnrgY7gveMGiNuWr6-uF4MFmY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467720105587-1lof49g7gutbel454md94mr8q5vob7v9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
