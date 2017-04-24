@@ -41,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                System.out.println(snapshot.getValue());
-                System.out.println(snapshot.child("Light").getValue());
                 String light = snapshot.child("Light").getValue().toString();
                 String moisture = snapshot.child("Moisture").getValue().toString();
 
@@ -51,9 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
                 TextView moistureTextField = (TextView) findViewById(R.id.moisture_field);
                 moistureTextField.setText(moisture);
-                //Float light_val = (float) snapshot.child("Light").getValue();
-                //Log.d(TAG, "Data Changed! New Value: "+light_val);
-                //lightTextField.setText((String) snapshot.getValue());
             }
 
             @Override
