@@ -63,6 +63,16 @@ public class SigninActivity extends AppCompatActivity {
                 });
             }
         });
+
+        Button viewPlantsButton = (Button)findViewById(R.id.view_plants);
+        viewPlantsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent showPlantsIntent = new Intent(SigninActivity.this, MonitoringActivity.class);
+                startActivity(showPlantsIntent);
+                finish();
+            }
+        });
     }
     private boolean isUserLogin(){
         if(auth.getCurrentUser() != null){
