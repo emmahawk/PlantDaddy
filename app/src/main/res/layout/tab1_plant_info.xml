@@ -145,12 +145,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/button_wrapper"
-        android:layout_alignRight="@+id/light_label"
         android:layout_alignEnd="@+id/light_label"
-        android:layout_marginLeft="60dp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_alignRight="@+id/light_label"
         android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_wrapper">
+        android:layout_marginLeft="60dp"
+        android:checkedButton="@+id/lightThresholdButton3"
+        app:layout_constraintBottom_toTopOf="@+id/button_wrapper"
+        app:layout_constraintLeft_toLeftOf="parent">
 
         <RadioButton
             android:id="@+id/lightThresholdButton1"
@@ -211,10 +212,11 @@
         android:layout_alignEnd="@+id/moisture_field"
         android:layout_alignRight="@+id/moisture_field"
         android:layout_alignTop="@+id/light_threshold_buttongroup"
-        android:layout_marginRight="60dp"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_wrapper">
+        android:layout_marginRight="60dp"
+        android:checkedButton="@+id/moistureThresholdButton3"
+        app:layout_constraintBottom_toTopOf="@+id/button_wrapper"
+        app:layout_constraintRight_toRightOf="parent">
 
         <RadioButton
             android:id="@+id/moistureThresholdButton1"

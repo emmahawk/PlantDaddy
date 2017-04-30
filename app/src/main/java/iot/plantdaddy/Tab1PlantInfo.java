@@ -5,6 +5,7 @@ package iot.plantdaddy;
  */
 
 import android.content.Intent;
+import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
@@ -27,6 +29,18 @@ import com.google.firebase.database.ValueEventListener;
 public class Tab1PlantInfo extends Fragment {
 
     private DatabaseReference database;
+
+    final int VERY_HIGH_LIGHTING_THRESHOLD = 200;
+    final int HIGH_LIGHTING_THRESHOLD = 150;
+    final int MEDIUM_LIGHTING_THRESHOLD = 100;
+    final int LOW_LIGHTING_THRESHOLD = 50;
+    final int VERY_LOW_LIGHTING_THRESHOLD = 0;
+
+    final int VERY_HIGH_MOISTURE_THRESHOLD = 200;
+    final int HIGH_MOISTURE_THRESHOLD = 150;
+    final int MEDIUM_MOISTURE_THRESHOLD = 100;
+    final int LOW_MOISTURE_THRESHOLD = 50;
+    final int VERY_LOW_MOISTURE_THRESHOLD = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,6 +70,10 @@ public class Tab1PlantInfo extends Fragment {
 
         database = FirebaseDatabase.getInstance().getReference();
 
+        // Initialize threshold values
+        database.child("Daisy/LightThreshold").setValue(MEDIUM_LIGHTING_THRESHOLD);
+        database.child("Daisy/WaterThreshold").setValue(MEDIUM_MOISTURE_THRESHOLD);
+
         database.child("PlantDaddy").addValueEventListener(new ValueEventListener() {
 
             @Override
@@ -73,19 +91,83 @@ public class Tab1PlantInfo extends Fragment {
             }
         });
 
+        RadioGroup lightingThresholdButtonGroup = (RadioGroup) rootView.findViewById(R.id.light_threshold_buttongroup);
+        lightingThresholdButtonGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                switch (i) {
+                    case R.id.lightThresholdButton1: //Very High
+                        database.child("Daisy/LightThreshold").setValue(VERY_HIGH_LIGHTING_THRESHOLD);
+                        break;
+
+                    case R.id.lightThresholdButton2: //High
+                        database.child("Daisy/LightThreshold").setValue(HIGH_LIGHTING_THRESHOLD);
+                        break;
+
+                    case R.id.lightThresholdButton3: //Medium
+                        database.child("Daisy/LightThreshold").setValue(MEDIUM_LIGHTING_THRESHOLD);
+                        break;
+
+                    case R.id.lightThresholdButton4: //Low
+                        database.child("Daisy/LightThreshold").setValue(LOW_LIGHTING_THRESHOLD);
+                        break;
+
+                    case R.id.lightThresholdButton5: //Very Low
+                        database.child("Daisy/LightThreshold").setValue(VERY_LOW_LIGHTING_THRESHOLD);
+                        break;
+
+                    default:
+                        //error
+                        break;
+                }
+            }
+        });
+
+        RadioGroup moistureThresholdButtonGroup = (RadioGroup) rootView.findViewById(R.id.moisture_threshold_buttongroup);
+        moistureThresholdButtonGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                switch (i) {
+                    case R.id.moistureThresholdButton1: //Very High
+                        database.child("Daisy/WaterThreshold").setValue(VERY_HIGH_MOISTURE_THRESHOLD);
+                        break;
+
+                    case R.id.moistureThresholdButton2: //High
+                        database.child("Daisy/WaterThreshold").setValue(HIGH_MOISTURE_THRESHOLD);
+                        break;
+
+                    case R.id.moistureThresholdButton3: //Medium
+                        database.child("Daisy/WaterThreshold").setValue(MEDIUM_MOISTURE_THRESHOLD);
+                        break;
+
+                    case R.id.moistureThresholdButton4: //Low
+                        database.child("Daisy/WaterThreshold").setValue(LOW_MOISTURE_THRESHOLD);
+                        break;
+
+                    case R.id.moistureThresholdButton5: //Very Low
+                        database.child("Daisy/WaterThreshold").setValue(VERY_LOW_MOISTURE_THRESHOLD);
+                        break;
+
+                    default:
+                        //error
+                        break;
+                }
+            }
+        });
+
         return rootView;
     }
 
     public void setLightFieldText(int lightValue, View dataView) {
         String output;
         TextView lightTextField = (TextView) dataView.findViewById(R.id.light_field);
-        if (lightValue > 200) {
+        if (lightValue > VERY_HIGH_LIGHTING_THRESHOLD) {
             output = "Direct Sunlight";
-        } else if (lightValue > 150) {
+        } else if (lightValue > HIGH_LIGHTING_THRESHOLD) {
             output = "Bright";
-        } else if (lightValue > 100) {
+        } else if (lightValue > MEDIUM_LIGHTING_THRESHOLD) {
             output = "Indoor";
-        } else if (lightValue > 50) {
+        } else if (lightValue > LOW_LIGHTING_THRESHOLD) {
             output = "Dim";
         } else  {
             output = "Dark";
@@ -97,13 +179,13 @@ public class Tab1PlantInfo extends Fragment {
     public void setMoistureFieldText(int moistureValue, View dataView) {
         String output;
         TextView moistureTextField = (TextView) dataView.findViewById(R.id.moisture_field);
-        if (moistureValue > 200) {
+        if (moistureValue > VERY_HIGH_MOISTURE_THRESHOLD) {
             output = "Moister than an Oyster";
-        } else if (moistureValue > 150) {
+        } else if (moistureValue > HIGH_MOISTURE_THRESHOLD) {
             output = "Very Moist";
-        } else if (moistureValue > 100) {
+        } else if (moistureValue > MEDIUM_MOISTURE_THRESHOLD) {
             output = "Moist";
-        } else if (moistureValue > 50) {
+        } else if (moistureValue > LOW_MOISTURE_THRESHOLD) {
             output = "Dry";
         } else  {
             output = "Very Dry";
