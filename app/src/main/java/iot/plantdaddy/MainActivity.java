@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
     private void loginUser(){
-        Intent loginIntent = new Intent(MainActivity.this, SigninActivity.class);
+        Intent loginIntent = new Intent(MainActivity.this, TabbedPlantDataActivity.class);
         startActivity(loginIntent);
         finish();
     }
