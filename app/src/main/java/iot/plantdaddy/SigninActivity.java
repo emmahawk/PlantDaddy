@@ -68,7 +68,7 @@ public class SigninActivity extends AppCompatActivity {
         viewPlantsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent showPlantsIntent = new Intent(SigninActivity.this, MonitoringActivity.class);
+                Intent showPlantsIntent = new Intent(SigninActivity.this, TabbedPlantDataActivity.class);
                 startActivity(showPlantsIntent);
                 finish();
             }

@@ -17,7 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".SigninActivity" />
-        <activity android:name=".MonitoringActivity"></activity>
+        <activity
+            android:name=".TabbedPlantDataActivity"
+            android:label="@string/title_activity_tabbed_plant_data"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
