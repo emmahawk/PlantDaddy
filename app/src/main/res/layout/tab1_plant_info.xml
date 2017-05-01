@@ -117,7 +117,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="300dp"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
@@ -126,26 +126,19 @@
 
         <Button
             android:id="@+id/water_now_button"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/estimated_waterings_remaining_label"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="WATER NOW"
-            android:textSize="18sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/estimated_waterings_remaining_label" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/refill_button"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Refill Water"
+            android:text="REFILL WATER"
             android:textSize="18sp" />
-
     </LinearLayout>
 
     <TextView
