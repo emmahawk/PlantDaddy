@@ -3,6 +3,7 @@ package iot.plantdaddy;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -10,8 +11,8 @@ import android.widget.Toast;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
-    private static final String TAG = MainActivity.class.getSimpleName();
+public class LoginActivity extends AppCompatActivity {
+    private static final String TAG = LoginActivity.class.getSimpleName();
     private static final String PATH_TOS = "";
     private Button loginButton;
     private FirebaseAuth auth;
@@ -21,8 +22,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         auth = FirebaseAuth.getInstance();
         if(isUserLogin()){loginUser();}
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login_page);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         loginButton = (Button)findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
                         .build(), RC_SIGN_IN);
             }
         });
+
+        this.setTitle("Plant Parenthood");
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -54,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
     private void loginUser(){
-        Intent loginIntent = new Intent(MainActivity.this, TabbedPlantDataActivity.class);
+        Intent loginIntent = new Intent(LoginActivity.this, TabbedPlantDataActivity.class);
         startActivity(loginIntent);
         finish();
     }

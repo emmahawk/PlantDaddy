@@ -53,6 +53,7 @@ public class TabbedPlantDataActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+        this.setTitle("Plant Parenthood");
     }
 
 

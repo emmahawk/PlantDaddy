@@ -4,11 +4,15 @@ package iot.plantdaddy;
  * Created by Evan on 4/29/2017.
  */
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+@SuppressWarnings("deprecation")
 public class Tab1PlantInfo extends Fragment {
 
     private DatabaseReference database;
@@ -70,12 +75,9 @@ public class Tab1PlantInfo extends Fragment {
 
         database = FirebaseDatabase.getInstance().getReference();
 
-        // Initialize threshold values
-        database.child("Daisy/LightThreshold").setValue(MEDIUM_LIGHTING_THRESHOLD);
-        database.child("Daisy/WaterThreshold").setValue(MEDIUM_MOISTURE_THRESHOLD);
+        // Initialize threshold radio button values
 
         database.child("PlantDaddy").addValueEventListener(new ValueEventListener() {
-
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 int light = Integer.parseInt(snapshot.child("Light").getValue().toString());
@@ -91,6 +93,31 @@ public class Tab1PlantInfo extends Fragment {
             }
         });
 
+        Button waterNowButton = (Button)rootView.findViewById(R.id.water_now_button);
+        waterNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Force Water Plant?");
+                builder.setMessage("Are you sure you want to water your plant?\nThis may cause overwatering.");
+                builder.setPositiveButton(Html.fromHtml("Yes"), new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                database.child("Device/ValveState").setValue("true"); // Opens valve
+                            }
+                        });
+                builder.setNegativeButton(Html.fromHtml("No"), new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                database.child("Device/ValveState").setValue("false"); // Valve remains closed
+                            }
+                        });
+                builder.setIcon(android.R.drawable.ic_dialog_alert);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                dialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(ContextCompat.getColor(getContext(), R.color.colorBlack));
+                dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(ContextCompat.getColor(getContext(), R.color.colorBlack));
+            }
+        });
+
         RadioGroup lightingThresholdButtonGroup = (RadioGroup) rootView.findViewById(R.id.light_threshold_buttongroup);
         lightingThresholdButtonGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -98,22 +125,27 @@ public class Tab1PlantInfo extends Fragment {
                 switch (i) {
                     case R.id.lightThresholdButton1: //Very High
                         database.child("Daisy/LightThreshold").setValue(VERY_HIGH_LIGHTING_THRESHOLD);
+                        database.child("Daisy/LightingThresholdOffset").setValue(0);
                         break;
 
                     case R.id.lightThresholdButton2: //High
                         database.child("Daisy/LightThreshold").setValue(HIGH_LIGHTING_THRESHOLD);
+                        database.child("Daisy/LightingThresholdOffset").setValue(0);
                         break;
 
                     case R.id.lightThresholdButton3: //Medium
                         database.child("Daisy/LightThreshold").setValue(MEDIUM_LIGHTING_THRESHOLD);
+                        database.child("Daisy/LightingThresholdOffset").setValue(0);
                         break;
 
                     case R.id.lightThresholdButton4: //Low
                         database.child("Daisy/LightThreshold").setValue(LOW_LIGHTING_THRESHOLD);
+                        database.child("Daisy/LightingThresholdOffset").setValue(0);
                         break;
 
                     case R.id.lightThresholdButton5: //Very Low
                         database.child("Daisy/LightThreshold").setValue(VERY_LOW_LIGHTING_THRESHOLD);
+                        database.child("Daisy/LightingThresholdOffset").setValue(0);
                         break;
 
                     default:
@@ -130,22 +162,27 @@ public class Tab1PlantInfo extends Fragment {
                 switch (i) {
                     case R.id.moistureThresholdButton1: //Very High
                         database.child("Daisy/WaterThreshold").setValue(VERY_HIGH_MOISTURE_THRESHOLD);
+                        database.child("Daisy/WateringThresholdOffset").setValue(0);
                         break;
 
                     case R.id.moistureThresholdButton2: //High
                         database.child("Daisy/WaterThreshold").setValue(HIGH_MOISTURE_THRESHOLD);
+                        database.child("Daisy/WateringThresholdOffset").setValue(0);
                         break;
 
                     case R.id.moistureThresholdButton3: //Medium
                         database.child("Daisy/WaterThreshold").setValue(MEDIUM_MOISTURE_THRESHOLD);
+                        database.child("Daisy/WateringThresholdOffset").setValue(0);
                         break;
 
                     case R.id.moistureThresholdButton4: //Low
                         database.child("Daisy/WaterThreshold").setValue(LOW_MOISTURE_THRESHOLD);
+                        database.child("Daisy/WateringThresholdOffset").setValue(0);
                         break;
 
                     case R.id.moistureThresholdButton5: //Very Low
                         database.child("Daisy/WaterThreshold").setValue(VERY_LOW_MOISTURE_THRESHOLD);
+                        database.child("Daisy/WateringThresholdOffset").setValue(0);
                         break;
 
                     default:
@@ -195,7 +232,7 @@ public class Tab1PlantInfo extends Fragment {
     }
 
     private void signOut(){
-        Intent signOutIntent = new Intent(Tab1PlantInfo.this.getActivity(), MainActivity.class);
+        Intent signOutIntent = new Intent(Tab1PlantInfo.this.getActivity(), LoginActivity.class);
         startActivity(signOutIntent);
     }
 }
