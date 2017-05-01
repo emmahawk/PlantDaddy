@@ -26,7 +26,7 @@ public class Tab2PlantPhoto extends Fragment {
 
     final int userFeedbackDelay = 5000; // Time in milliseconds
 
-    private int moistureThresholdOffset;
+    private int moistureThreshold;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,7 +37,7 @@ public class Tab2PlantPhoto extends Fragment {
         database.child("Daisy").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                moistureThresholdOffset = Integer.parseInt(snapshot.child("WateringThresholdOffset").getValue().toString());
+                moistureThreshold = Integer.parseInt(snapshot.child("WaterThreshold").getValue().toString());
             }
 
             @Override
@@ -55,7 +55,7 @@ public class Tab2PlantPhoto extends Fragment {
             public void onClick(View view) {
                 System.out.println("Needs Water Button Pressed.");
                 //update offset
-                database.child("Daisy/WateringThresholdOffset").setValue(moistureThresholdOffset+10);
+                database.child("Daisy/WaterThreshold").setValue(moistureThreshold +10);
 
                 timedDisableAllWaterButtons();
             }
@@ -65,7 +65,7 @@ public class Tab2PlantPhoto extends Fragment {
             public void onClick(View view) {
                 System.out.println("Proper Water Button Pressed.");
                 //update offset
-                database.child("Daisy/WateringThresholdOffset").setValue(moistureThresholdOffset); // Shouldn't do anything
+                database.child("Daisy/WaterThreshold").setValue(moistureThreshold); // Shouldn't do anything
 
                 timedDisableAllWaterButtons();
             }
@@ -75,7 +75,7 @@ public class Tab2PlantPhoto extends Fragment {
             public void onClick(View view) {
                 System.out.println("Too Much Water Button Pressed.");
                 //update offset
-                database.child("Daisy/WateringThresholdOffset").setValue(moistureThresholdOffset-10);
+                database.child("Daisy/WaterThreshold").setValue(moistureThreshold -10);
 
                 timedDisableAllWaterButtons();
             }

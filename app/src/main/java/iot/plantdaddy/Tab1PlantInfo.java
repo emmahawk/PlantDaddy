@@ -125,31 +125,26 @@ public class Tab1PlantInfo extends Fragment {
         RadioGroup lightingThresholdButtonGroup = (RadioGroup) rootView.findViewById(R.id.light_threshold_buttongroup);
         lightingThresholdButtonGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+            public void onCheckedChanged(RadioGroup radioGroup, final @IdRes int i) {
                 switch (i) {
                     case R.id.lightThresholdButton1: //Very High
                         database.child("Daisy/LightThreshold").setValue(VERY_HIGH_LIGHTING_THRESHOLD);
-                        database.child("Daisy/LightingThresholdOffset").setValue(0);
                         break;
 
                     case R.id.lightThresholdButton2: //High
                         database.child("Daisy/LightThreshold").setValue(HIGH_LIGHTING_THRESHOLD);
-                        database.child("Daisy/LightingThresholdOffset").setValue(0);
                         break;
 
                     case R.id.lightThresholdButton3: //Medium
                         database.child("Daisy/LightThreshold").setValue(MEDIUM_LIGHTING_THRESHOLD);
-                        database.child("Daisy/LightingThresholdOffset").setValue(0);
                         break;
 
                     case R.id.lightThresholdButton4: //Low
                         database.child("Daisy/LightThreshold").setValue(LOW_LIGHTING_THRESHOLD);
-                        database.child("Daisy/LightingThresholdOffset").setValue(0);
                         break;
 
                     case R.id.lightThresholdButton5: //Very Low
                         database.child("Daisy/LightThreshold").setValue(VERY_LOW_LIGHTING_THRESHOLD);
-                        database.child("Daisy/LightingThresholdOffset").setValue(0);
                         break;
 
                     default:
@@ -166,27 +161,22 @@ public class Tab1PlantInfo extends Fragment {
                 switch (i) {
                     case R.id.moistureThresholdButton1: //Very High
                         database.child("Daisy/WaterThreshold").setValue(VERY_HIGH_MOISTURE_THRESHOLD);
-                        database.child("Daisy/WateringThresholdOffset").setValue(0);
                         break;
 
                     case R.id.moistureThresholdButton2: //High
                         database.child("Daisy/WaterThreshold").setValue(HIGH_MOISTURE_THRESHOLD);
-                        database.child("Daisy/WateringThresholdOffset").setValue(0);
                         break;
 
                     case R.id.moistureThresholdButton3: //Medium
                         database.child("Daisy/WaterThreshold").setValue(MEDIUM_MOISTURE_THRESHOLD);
-                        database.child("Daisy/WateringThresholdOffset").setValue(0);
                         break;
 
                     case R.id.moistureThresholdButton4: //Low
                         database.child("Daisy/WaterThreshold").setValue(LOW_MOISTURE_THRESHOLD);
-                        database.child("Daisy/WateringThresholdOffset").setValue(0);
                         break;
 
                     case R.id.moistureThresholdButton5: //Very Low
                         database.child("Daisy/WaterThreshold").setValue(VERY_LOW_MOISTURE_THRESHOLD);
-                        database.child("Daisy/WateringThresholdOffset").setValue(0);
                         break;
 
                     default:

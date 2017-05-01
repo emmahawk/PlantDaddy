@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/welcome"
-        android:layout_width="370dp"
+        android:layout_width="340dp"
         android:layout_height="188dp"
         android:layout_alignParentTop="true"
         android:layout_centerVertical="true"
