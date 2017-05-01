@@ -85,6 +85,10 @@ public class Tab1PlantInfo extends Fragment {
 
                 setLightFieldText(light, rootView);
                 setMoistureFieldText(moisture, rootView);
+
+                TextView estimatedWateringsRemainingField = (TextView) rootView.findViewById(R.id.estimated_waterings_remaining_field);
+                String wateringsRemaining = snapshot.child("NumberOfWatersLeft").getValue().toString();
+                estimatedWateringsRemainingField.setText(wateringsRemaining);
             }
 
             @Override

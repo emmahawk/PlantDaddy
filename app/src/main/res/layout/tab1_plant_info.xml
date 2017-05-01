@@ -151,13 +151,13 @@
         android:id="@+id/light_threshold_buttongroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button_wrapper"
+        android:layout_above="@+id/water_response_button_wrapper"
         android:layout_alignEnd="@+id/light_label"
         android:layout_alignRight="@+id/light_label"
         android:layout_marginBottom="40dp"
         android:layout_marginLeft="60dp"
         android:checkedButton="@+id/lightThresholdButton3"
-        app:layout_constraintBottom_toTopOf="@+id/button_wrapper"
+        app:layout_constraintBottom_toTopOf="@+id/water_response_button_wrapper"
         app:layout_constraintLeft_toLeftOf="parent">
 
         <RadioButton
@@ -228,7 +228,7 @@
         android:layout_marginBottom="40dp"
         android:layout_marginRight="60dp"
         android:checkedButton="@+id/moistureThresholdButton3"
-        app:layout_constraintBottom_toTopOf="@+id/button_wrapper"
+        app:layout_constraintBottom_toTopOf="@+id/water_response_button_wrapper"
         app:layout_constraintRight_toRightOf="parent">
 
         <RadioButton
@@ -273,7 +273,7 @@
     </RadioGroup>
 
     <LinearLayout
-        android:id="@+id/button_wrapper"
+        android:id="@+id/water_response_button_wrapper"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
