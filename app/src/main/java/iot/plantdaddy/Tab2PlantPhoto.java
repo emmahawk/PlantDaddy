@@ -25,6 +25,7 @@ public class Tab2PlantPhoto extends Fragment {
     private Button tooMuchWaterButton;
 
     final int userFeedbackDelay = 30 * 60 * 1000; // Time in milliseconds
+    final int offsetAmount = 2;
 
     private int moistureThreshold;
 
@@ -55,7 +56,7 @@ public class Tab2PlantPhoto extends Fragment {
             public void onClick(View view) {
                 System.out.println("Needs Water Button Pressed.");
                 //update offset
-                database.child("Daisy/WaterThreshold").setValue(moistureThreshold +10);
+                database.child("Daisy/WaterThreshold").setValue(moistureThreshold + offsetAmount);
 
                 timedDisableAllWaterButtons();
             }
@@ -75,7 +76,7 @@ public class Tab2PlantPhoto extends Fragment {
             public void onClick(View view) {
                 System.out.println("Too Much Water Button Pressed.");
                 //update offset
-                database.child("Daisy/WaterThreshold").setValue(moistureThreshold -10);
+                database.child("Daisy/WaterThreshold").setValue(moistureThreshold - offsetAmount);
 
                 timedDisableAllWaterButtons();
             }

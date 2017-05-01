@@ -40,11 +40,11 @@ public class Tab3PlantHistory extends Fragment {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 timeList.clear();
-                timeList.add((String)snapshot.child("ValveHistory/History1").getValue());
-                timeList.add((String)snapshot.child("ValveHistory/History2").getValue());
-                timeList.add((String)snapshot.child("ValveHistory/History3").getValue());
-                timeList.add((String)snapshot.child("ValveHistory/History4").getValue());
                 timeList.add((String)snapshot.child("ValveHistory/History5").getValue());
+                timeList.add((String)snapshot.child("ValveHistory/History4").getValue());
+                timeList.add((String)snapshot.child("ValveHistory/History3").getValue());
+                timeList.add((String)snapshot.child("ValveHistory/History2").getValue());
+                timeList.add((String)snapshot.child("ValveHistory/History1").getValue());
                 System.out.println("Valve History: " + timeList);
 
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(

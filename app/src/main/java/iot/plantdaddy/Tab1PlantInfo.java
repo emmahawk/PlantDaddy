@@ -23,7 +23,6 @@ import android.widget.TextView;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,18 +40,16 @@ public class Tab1PlantInfo extends Fragment {
     final int LOW_LIGHTING_THRESHOLD = 50;
     final int VERY_LOW_LIGHTING_THRESHOLD = 0;
 
-    final int VERY_HIGH_MOISTURE_THRESHOLD = 200;
-    final int HIGH_MOISTURE_THRESHOLD = 150;
-    final int MEDIUM_MOISTURE_THRESHOLD = 100;
-    final int LOW_MOISTURE_THRESHOLD = 50;
+    final int VERY_HIGH_MOISTURE_THRESHOLD = 2050;
+    final int HIGH_MOISTURE_THRESHOLD = 2000;
+    final int MEDIUM_MOISTURE_THRESHOLD = 1980;
+    final int LOW_MOISTURE_THRESHOLD = 1950;
     final int VERY_LOW_MOISTURE_THRESHOLD = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.tab1_plant_info, container, false);
-
-        final FirebaseAuth auth = FirebaseAuth.getInstance();
 
         Button logoutButton = (Button)rootView.findViewById(R.id.logout_button);
         logoutButton.setOnClickListener(new View.OnClickListener() {
