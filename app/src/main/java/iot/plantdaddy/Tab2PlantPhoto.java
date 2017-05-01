@@ -24,7 +24,7 @@ public class Tab2PlantPhoto extends Fragment {
     private Button properWaterButton;
     private Button tooMuchWaterButton;
 
-    final int userFeedbackDelay = 5000; // Time in milliseconds
+    final int userFeedbackDelay = 30 * 60 * 1000; // Time in milliseconds
 
     private int moistureThreshold;
 
