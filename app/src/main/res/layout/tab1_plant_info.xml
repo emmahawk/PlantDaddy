@@ -43,7 +43,6 @@
         android:textColor="@color/colorBlack"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@+id/light_label"
-        android:layout_marginLeft="-25dp"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
@@ -55,7 +54,7 @@
         android:layout_alignLeft="@+id/light_field"
         android:layout_alignStart="@+id/light_field"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="-6dp"
         android:text="                      "
         android:textAlignment="textEnd"
@@ -72,7 +71,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="13dp"
         android:text="                     "
         android:textAlignment="textEnd"
@@ -90,9 +89,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/moisture_label"
         android:layout_below="@+id/moisture_label"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="17dp"
         android:text="Estimated Waterings Remaining"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
@@ -113,36 +112,57 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/moisture_field" />
+        app:layout_constraintTop_toBottomOf="@+id/moisture_field"
+        android:layout_marginEnd="8dp" />
 
-    <Button
-        android:id="@+id/water_now_button"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/estimated_waterings_remaining_label"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
-        android:text="WATER NOW"
-        android:textSize="30sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/estimated_waterings_remaining_label" />
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/estimated_waterings_remaining_label"
+        tools:layout_editor_absoluteX="8dp">
+
+        <Button
+            android:id="@+id/water_now_button"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/estimated_waterings_remaining_label"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="WATER NOW"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/estimated_waterings_remaining_label" />
+
+        <Button
+            android:id="@+id/refill_button"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="Refill Water"
+            android:textSize="18sp" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/lighting_requirement_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
         android:layout_toLeftOf="@+id/moisture_field"
         android:layout_toStartOf="@+id/moisture_field"
         android:text="Lighting Requirement"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@+id/water_now_button"
-        tools:layout_editor_absoluteX="14dp" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:layout_marginTop="9dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <RadioGroup
         android:id="@+id/light_threshold_buttongroup"
@@ -204,7 +224,6 @@
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginTop="17dp"
         android:layout_toEndOf="@+id/estimated_waterings_remaining_label"
         android:layout_toRightOf="@+id/estimated_waterings_remaining_label"
         android:layout_weight="1"
@@ -212,9 +231,11 @@
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@+id/water_now_button"
-        android:layout_marginRight="6dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:layout_marginRight="22dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="6dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:layout_marginTop="8dp" />
 
     <RadioGroup
         android:id="@+id/moisture_threshold_buttongroup"

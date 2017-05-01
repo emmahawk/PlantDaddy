@@ -122,6 +122,32 @@ public class Tab1PlantInfo extends Fragment {
             }
         });
 
+        Button waterRefilledButton = (Button)rootView.findViewById(R.id.refill_button);
+        waterRefilledButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Water Refilled?");
+                builder.setMessage("Did you refill the water dispenser?");
+                builder.setPositiveButton(Html.fromHtml("Yes"), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        database.child("PlantDaddy/RefillStatus").setValue("false"); // Water doesn't need to be refilled
+                        database.child("PlantDaddy/NumberOfWatersLeft").setValue(20);
+                    }
+                });
+                builder.setNegativeButton(Html.fromHtml("No"), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do Nothing
+                    }
+                });
+                builder.setIcon(android.R.drawable.ic_dialog_alert);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                dialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(ContextCompat.getColor(getContext(), R.color.colorBlack));
+                dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(ContextCompat.getColor(getContext(), R.color.colorBlack));
+            }
+        });
+
         RadioGroup lightingThresholdButtonGroup = (RadioGroup) rootView.findViewById(R.id.light_threshold_buttongroup);
         lightingThresholdButtonGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
